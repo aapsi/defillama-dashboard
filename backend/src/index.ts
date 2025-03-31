@@ -4,9 +4,9 @@ import { PrismaClient } from "@prisma/client";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
-import protocolRoutes from "./routes/dataRoutes";
+import protocolRoutes from "./trpc/routers/dataRoutes";
 import { scheduleDataFetching } from "./scripts/fetchLlamaData";
-import userRoutes from "./routes/users";
+import userRoutes from "./trpc/users";
 
 dotenv.config();
 
