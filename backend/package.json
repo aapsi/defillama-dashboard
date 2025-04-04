@@ -14,11 +14,13 @@
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
+    "@types/sentiment": "^5.0.4",
     "axios": "^1.6.8",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.1",
-    "node-cron": "^3.0.3"
+    "node-cron": "^3.0.3",
+    "sentiment": "^5.0.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

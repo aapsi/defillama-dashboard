@@ -8,12 +8,32 @@ datasource db {
 }
 
 model Protocol {
-  id           String  @id
-  name         String
-  symbol       String?
-  tvlUsd       Float?
-  change_1h    Float?
-  change_1d    Float?
-  change_7d    Float?
-  timestamp    DateTime @default(now())
+  id              String            @id
+  name            String
+  symbol          String?
+  chain           String?
+  category        String?
+  tvlUsd         Float?
+  mcap           Float?
+  volume24h      Float?
+  change_1h      Float?
+  change_1d      Float?
+  change_7d      Float?
+  lastUpdated    DateTime          @default(now())
+  description    String?
+  url            String?
+  history        ProtocolHistory[]
+}
+
+model ProtocolHistory {
+  id            String    @id @default(cuid())
+  protocolId    String
+  protocol      Protocol  @relation(fields: [protocolId], references: [id])
+  tvlUsd       Float
+  mcap         Float?
+  volume24h    Float?
+  timestamp    DateTime
+  sentiment    Float?    // Sentiment score between -1 and 1
+
+  @@index([protocolId, timestamp])
 }
